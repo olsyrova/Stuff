@@ -32,6 +32,10 @@ public class Main {
 		String query = LOCATION_ENDPOINT + args[0];
 		try {
 			URL url = new URL(query);
+			// TO DO : get json directly from url
+			//List<City> myObjects = Arrays.asList(mapper.readValue(sb.toString(), City[].class));
+
+
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Accept", "application/json");
@@ -53,7 +57,6 @@ public class Main {
 			}
 			System.out.println("stop");
 
-			JSONObject output;
 			try {
 				ObjectMapper mapper = new ObjectMapper();
 				mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -65,8 +68,8 @@ public class Main {
 						.addColumn("_id")
 						.addColumn("name")
 						.addColumn("type")
-						.addColumn("latitude", CsvSchema.ColumnType.NUMBER)
-						.addColumn("longitude", CsvSchema.ColumnType.NUMBER)
+						.addColumn("geo_position.latitude", CsvSchema.ColumnType.NUMBER)
+						.addColumn("geo_position.longitude", CsvSchema.ColumnType.NUMBER)
 						.setUseHeader(true)
 						.build()
 						.withLineSeparator("\r");
@@ -81,25 +84,6 @@ public class Main {
 				myObjectWriter.writeValue(writerOutputStream, myObjects);
 
 
-				/*CsvSchema csvSchema = CsvSchema.builder()
-						.addColumn("_id")
-						.addColumn("name")
-						.addColumn("type")
-						.addColumn("latitude", CsvSchema.ColumnType.NUMBER)
-						.addColumn("longitude", CsvSchema.ColumnType.NUMBER)
-						.setUseHeader(true)
-						.build()
-						.withLineSeparator("\r");
-
-				CsvMapper csvMapper = new CsvMapper();
-				CsvFactory factory = mapper.getTypeFactory();
-				CsvGenerator gen = factory.createGenerator(
-						new File("test_csv.csv"),
-						CsvEncoding.UTF8
-				);
-				gen.useDefaultPrettyPrinter();
-				ObjectWriter objectWriter = csvMapper.writer(csvSchema);
-				objectWriter.writeValue(gen, myObjects);*/
 
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

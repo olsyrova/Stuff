@@ -5,11 +5,20 @@ public class City {
 	private int _id;
 	private String name;
 	private String type;
+	private GeoPosition geo_position;
 	private float latitude;
 	private float longitude;
 
 	public int get_id() {
 		return _id;
+	}
+
+	public GeoPosition getGeo_position() {
+		return geo_position;
+	}
+
+	public void setGeo_position(GeoPosition geo_position) {
+		this.geo_position = geo_position;
 	}
 
 	public void set_id(int _id) {

@@ -1,1 +1,1 @@
-_id,name,type,latitude,longitude376217,Berlin,location,0.0,0.0448103,Berlingo,location,0.0,0.0425332,Berlingerode,location,0.0,0.0425326,"Bernau bei Berlin",location,0.0,0.0314826,"Berlin Tegel",airport,0.0,0.0314827,"Berlin Schönefeld",airport,0.0,0.0334196,"Berlin Hbf",station,0.0,0.0333977,"Berlin Ostbahnhof",station,0.0,0.0
+_id,name,type,geo_position.latitude,geo_position.longitude376217,,,,
