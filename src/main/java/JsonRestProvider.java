@@ -30,8 +30,10 @@ public class JsonRestProvider {
                 conn.setRequestProperty("Accept", "application/json");
 
                 if (conn.getResponseCode() != 200) {
+                    logger.error("please provide a valid input city");
                     throw new RuntimeException("Failed : HTTP error code : "
                             + conn.getResponseCode());
+
                 }
                 BufferedReader br = new BufferedReader(new InputStreamReader(
                         (conn.getInputStream()), "UTF-8"));

@@ -19,7 +19,7 @@ public class Main {
 
         // get response json
         String jsonString = JsonRestProvider.getJSONFromUrl(args[0]);
-        if ("".equalsIgnoreCase(jsonString)){
+        if ("".equalsIgnoreCase(jsonString) || jsonString == null){
             logger.error("empty json is returned => no csv file will be created");
             return;
         }
