@@ -1,3 +1,5 @@
+package domain;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -7,13 +9,19 @@ public class GeoPosition {
 	private float latitude;
 	private float longitude;
 
-	@JsonProperty("latitude")
+
+    public void setLatitude(float latitude) {
+        this.latitude = latitude;
+    }
+
+    public void setLongitude(float longitude) {
+        this.longitude = longitude;
+    }
+
+    @JsonProperty("latitude")
+
 	public float getLatitude() {
 		return latitude;
-	}
-
-	public void setLatitude(float latitude) {
-		this.latitude = latitude;
 	}
 
 	@JsonProperty("longitude")
@@ -21,9 +29,6 @@ public class GeoPosition {
 		return longitude;
 	}
 
-	public void setLongitude(float longitude) {
-		this.longitude = longitude;
-	}
 
 
 }
